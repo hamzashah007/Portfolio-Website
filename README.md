@@ -2,7 +2,7 @@
 
 A premium, 3D interactive portfolio showcasing the work of **Syed Hamza Sohail** — a Flutter Developer and Software Quality Assurance (SQA) Engineer.
 
-![Portfolio Preview](public/preview.png) *(Add a screenshot here later)*
+![Portfolio Preview](public/preview.png) 
 
 ## 🚀 Overview
 
