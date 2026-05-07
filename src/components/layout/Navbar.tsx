@@ -138,9 +138,9 @@ export function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-[100] lg:hidden flex flex-col justify-center items-center"
+            className="fixed inset-0 z-[9999] lg:hidden flex flex-col justify-center items-center overflow-hidden"
             style={{ 
-              backgroundColor: theme === "dark" ? "var(--bg-primary)" : "var(--bg-primary)",
+              backgroundColor: theme === "dark" ? "#0a0a0a" : "#ffffff", // Use solid colors for mobile menu
             }}
           >
             {/* Close Button in Full Screen */}
@@ -152,7 +152,7 @@ export function Navbar() {
               <X size={32} />
             </button>
 
-            <div className="flex flex-col items-center gap-8">
+            <div className="flex flex-col items-center gap-10">
               {navLinks.map((link, idx) => (
                 <motion.a
                   initial={{ opacity: 0, y: 20 }}
@@ -161,7 +161,7 @@ export function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-4xl font-bold hover:text-[#10B981] transition-all"
+                  className="text-4xl sm:text-5xl font-bold hover:text-[#10B981] transition-all text-center"
                   style={{ color: "var(--text-primary)" }}
                 >
                   {link.name}
