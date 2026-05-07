@@ -32,7 +32,7 @@ export function Projects() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <a href="https://github.com/HamzaSohail514" target="_blank" rel="noreferrer" className="text-[#F59E0B] hover:text-[#10B981] transition-colors flex items-center gap-2 font-medium">
+            <a href="https://github.com/hamzashah007" target="_blank" rel="noreferrer" className="text-[#F59E0B] hover:text-[#10B981] transition-colors flex items-center gap-2 font-medium">
               View all on GitHub &rarr;
             </a>
           </motion.div>

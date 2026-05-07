@@ -17,7 +17,12 @@ const navLinks = [
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const { theme, toggleTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,10 +47,11 @@ export function Navbar() {
   }, [isMobileMenuOpen]);
 
   return (
-    <header
+    <>
+      <header
       className={clsx(
         "fixed top-0 inset-x-0 z-50 transition-all duration-300 border-b border-transparent",
-        isScrolled
+        isScrolled && !isMobileMenuOpen
           ? "backdrop-blur-md py-4 shadow-lg"
           : "bg-transparent py-6"
       )}
@@ -94,10 +100,14 @@ export function Navbar() {
             style={{ backgroundColor: "var(--bg-card)", border: "1px solid var(--border-color)" }}
             aria-label="Toggle theme"
           >
-            {theme === "dark" ? (
-              <Sun size={16} className="text-[#F59E0B]" />
+            {mounted ? (
+              theme === "dark" ? (
+                <Sun size={16} className="text-[#F59E0B]" />
+              ) : (
+                <Moon size={16} className="text-[#10B981]" />
+              )
             ) : (
-              <Moon size={16} className="text-[#10B981]" />
+              <div className="w-4 h-4" /> // Placeholder to avoid layout shift
             )}
           </button>
 
@@ -117,7 +127,11 @@ export function Navbar() {
             style={{ backgroundColor: "var(--bg-card)", border: "1px solid var(--border-color)" }}
             aria-label="Toggle theme"
           >
-            {theme === "dark" ? <Sun size={16} className="text-[#F59E0B]" /> : <Moon size={16} className="text-[#10B981]" />}
+            {mounted ? (
+              theme === "dark" ? <Sun size={16} className="text-[#F59E0B]" /> : <Moon size={16} className="text-[#10B981]" />
+            ) : (
+              <div className="w-4 h-4" />
+            )}
           </button>
           <button
             className="hover:text-[#10B981]"
@@ -129,6 +143,7 @@ export function Navbar() {
           </button>
         </div>
       </div>
+    </header>
 
       {/* Mobile Nav */}
       <AnimatePresence>
@@ -189,6 +204,6 @@ export function Navbar() {
           </motion.nav>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }

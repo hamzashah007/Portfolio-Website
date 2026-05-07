@@ -22,7 +22,9 @@ export function ProjectCard3D({ title, description, techStack, index, slug, gith
   const [tilt, setTilt] = useState({ rotateX: 0, rotateY: 0, glowX: 50, glowY: 50 });
 
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
-    if (!ref.current) return;
+    const isMobile = window.innerWidth < 1024;
+    if (isMobile || !ref.current) return;
+
     const rect = ref.current.getBoundingClientRect();
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
@@ -55,7 +57,7 @@ export function ProjectCard3D({ title, description, techStack, index, slug, gith
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={handleMouseLeave}
         style={{
-          transform: `rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg)`,
+          transform: tilt.rotateX || tilt.rotateY ? `rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg)` : "none",
           transformStyle: "preserve-3d",
           transition: isHovered ? "transform 0.1s ease-out" : "transform 0.4s ease-out",
           backgroundColor: "var(--bg-card)",

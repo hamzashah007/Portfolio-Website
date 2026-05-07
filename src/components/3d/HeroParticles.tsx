@@ -34,9 +34,10 @@ export function HeroParticles() {
     resize();
     window.addEventListener("resize", resize);
 
-    const count = 80;
     const w = canvas.offsetWidth;
     const h = canvas.offsetHeight;
+    const isMobile = window.innerWidth < 768;
+    const count = isMobile ? 30 : 80;
 
     // Initialize particles uniformly across the screen
     if (particlesRef.current.length === 0) {
@@ -99,9 +100,10 @@ export function HeroParticles() {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
+          const distSq = dx * dx + dy * dy;
 
-          if (dist < 160) {
+          if (distSq < 25600) { // 160 * 160
+            const dist = Math.sqrt(distSq);
             const opacity = ((160 - dist) / 160) * 0.15 * lineOpacityMultiplier;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
