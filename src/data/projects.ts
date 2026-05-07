@@ -10,6 +10,7 @@ export interface ProjectDetail {
   githubUrl?: string;
   liveUrl?: string;
   images: string[];
+  logoSrc?: string;
 }
 
 export const projects: ProjectDetail[] = [
@@ -28,7 +29,8 @@ export const projects: ProjectDetail[] = [
     ],
     role: "Flutter App Developer",
     duration: "3 Months",
-    images: ["/projects/rattil-1.png", "/projects/rattil-2.png"]
+    images: ["/projects/rattil-1.png", "/projects/rattil-2.png"],
+    logoSrc: "/rattil_logo.png"
   },
   {
     slug: "al-athar",

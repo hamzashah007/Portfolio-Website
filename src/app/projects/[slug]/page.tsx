@@ -45,15 +45,22 @@ export default function ProjectDetail() {
               Back to Projects
             </Link>
             
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-              <div>
-                <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tight" style={{ color: "var(--text-primary)" }}>
-                  {project.title}
-                </h1>
-                <p className="text-xl max-w-2xl leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-                  {project.description}
-                </p>
-              </div>
+              <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div className="flex items-start gap-6">
+                  {project.logoSrc && (
+                    <div className="w-24 h-24 md:w-32 md:h-32 flex-shrink-0">
+                      <img src={project.logoSrc} alt={`${project.title} logo`} className="w-full h-full object-contain" />
+                    </div>
+                  )}
+                  <div>
+                    <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tight" style={{ color: "var(--text-primary)" }}>
+                      {project.title}
+                    </h1>
+                    <p className="text-xl max-w-2xl leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+                      {project.description}
+                    </p>
+                  </div>
+                </div>
               
               <div className="flex gap-4">
                 {project.githubUrl && (

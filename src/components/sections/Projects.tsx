@@ -47,6 +47,8 @@ export function Projects() {
               description={project.description}
               techStack={project.techStack}
               slug={project.slug}
+              githubUrl={project.githubUrl}
+              liveUrl={project.liveUrl}
             />
           ))}
         </div>
