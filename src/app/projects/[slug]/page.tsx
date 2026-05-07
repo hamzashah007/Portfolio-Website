@@ -21,11 +21,11 @@ export default function ProjectDetail() {
   }
 
   return (
-    <main className="min-h-screen bg-black text-white selection:bg-[#10B981]/30 pb-20">
+    <main className="min-h-screen selection:bg-[#10B981]/30 pb-20" style={{ backgroundColor: "var(--bg-primary)", color: "var(--text-primary)" }}>
       {/* Background Atmosphere */}
       <div className="fixed inset-0 pointer-events-none -z-10">
-        <div className="absolute top-0 left-[-10%] w-[50%] h-[50%] bg-[#10B981]/10 blur-[150px] rounded-full opacity-50" />
-        <div className="absolute bottom-[10%] right-[-10%] w-[40%] h-[40%] bg-[#F59E0B]/5 blur-[150px] rounded-full opacity-30" />
+        <div className="absolute top-0 left-[-10%] w-[50%] h-[50%] bg-[#10B981]/10 blur-[150px] rounded-full opacity-50" style={{ opacity: "var(--glow-opacity)" }} />
+        <div className="absolute bottom-[10%] right-[-10%] w-[40%] h-[40%] bg-[#F59E0B]/5 blur-[150px] rounded-full opacity-30" style={{ opacity: "var(--glow-opacity)" }} />
       </div>
 
       <section className="pt-32 pb-20 px-6">
@@ -38,7 +38,8 @@ export default function ProjectDetail() {
           >
             <Link 
               href="/#projects" 
-              className="inline-flex items-center gap-2 text-sm font-medium text-gray-400 hover:text-[#10B981] transition-colors mb-8 group"
+              className="inline-flex items-center gap-2 text-sm font-medium transition-colors mb-8 group"
+              style={{ color: "var(--text-muted)" }}
             >
               <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
               Back to Projects
@@ -46,17 +47,17 @@ export default function ProjectDetail() {
             
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
               <div>
-                <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tight">
+                <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tight" style={{ color: "var(--text-primary)" }}>
                   {project.title}
                 </h1>
-                <p className="text-xl text-gray-400 max-w-2xl leading-relaxed">
+                <p className="text-xl max-w-2xl leading-relaxed" style={{ color: "var(--text-secondary)" }}>
                   {project.description}
                 </p>
               </div>
               
               <div className="flex gap-4">
                 {project.githubUrl && (
-                  <a href={project.githubUrl} target="_blank" rel="noreferrer" className="p-3 rounded-xl bg-gray-900 border border-gray-800 hover:border-[#10B981] hover:text-[#10B981] transition-all">
+                  <a href={project.githubUrl} target="_blank" rel="noreferrer" className="p-3 rounded-xl transition-all" style={{ backgroundColor: "var(--bg-card)", border: "1px solid var(--border-color)", color: "var(--text-primary)" }}>
                     <GithubIcon size={24} />
                   </a>
                 )}
@@ -74,28 +75,29 @@ export default function ProjectDetail() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16 p-6 rounded-2xl bg-gray-900/50 border border-gray-800 backdrop-blur-sm"
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16 p-6 rounded-2xl backdrop-blur-sm"
+            style={{ backgroundColor: "var(--bg-card)", border: "1px solid var(--border-color)" }}
           >
             <div className="flex flex-col gap-1">
-              <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider flex items-center gap-1.5">
+              <span className="text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5" style={{ color: "var(--text-muted)" }}>
                 <User size={12} /> Role
               </span>
               <span className="text-base font-medium">{project.role}</span>
             </div>
             <div className="flex flex-col gap-1">
-              <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider flex items-center gap-1.5">
+              <span className="text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5" style={{ color: "var(--text-muted)" }}>
                 <Layers size={12} /> Category
               </span>
               <span className="text-base font-medium">Mobile Development</span>
             </div>
             <div className="flex flex-col gap-1">
-              <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider flex items-center gap-1.5">
+              <span className="text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5" style={{ color: "var(--text-muted)" }}>
                 <Clock size={12} /> Duration
               </span>
               <span className="text-base font-medium">{project.duration}</span>
             </div>
             <div className="flex flex-col gap-1">
-              <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider flex items-center gap-1.5">
+              <span className="text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5" style={{ color: "var(--text-muted)" }}>
                 <Target size={12} /> Status
               </span>
               <span className="text-base font-medium">Completed</span>
@@ -111,18 +113,18 @@ export default function ProjectDetail() {
               transition={{ delay: 0.2 }}
               className="lg:col-span-2"
             >
-              <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+              <h2 className="text-2xl font-bold mb-6 flex items-center gap-2" style={{ color: "var(--text-primary)" }}>
                 Project Overview
-                <div className="h-px flex-1 bg-gray-800 ml-4" />
+                <div className="h-px flex-1 ml-4" style={{ backgroundColor: "var(--border-color)" }} />
               </h2>
-              <p className="text-lg text-gray-300 leading-relaxed mb-8">
+              <p className="text-lg leading-relaxed mb-8" style={{ color: "var(--text-secondary)" }}>
                 {project.longDescription}
               </p>
               
-              <h3 className="text-xl font-bold mb-6">Key Features</h3>
+              <h3 className="text-xl font-bold mb-6" style={{ color: "var(--text-primary)" }}>Key Features</h3>
               <ul className="grid sm:grid-cols-2 gap-4">
                 {project.features.map((feature, idx) => (
-                  <li key={idx} className="flex gap-3 text-gray-400 bg-gray-900/30 p-4 rounded-xl border border-gray-800/50">
+                  <li key={idx} className="flex gap-3 p-4 rounded-xl border" style={{ color: "var(--text-secondary)", backgroundColor: "rgba(var(--bg-card-rgb), 0.3)", borderColor: "var(--border-color)" }}>
                     <div className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#10B981] flex-shrink-0" />
                     {feature}
                   </li>
@@ -136,7 +138,7 @@ export default function ProjectDetail() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
             >
-              <div className="sticky top-32 p-8 rounded-2xl bg-[#10B981]/5 border border-[#10B981]/20">
+              <div className="sticky top-32 p-8 rounded-2xl border" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-color)" }}>
                 <h3 className="text-xl font-bold mb-6 flex items-center gap-2 text-[#10B981]">
                   Technology Stack
                 </h3>
@@ -144,14 +146,15 @@ export default function ProjectDetail() {
                   {project.techStack.map((tech) => (
                     <span 
                       key={tech} 
-                      className="px-4 py-2 rounded-lg bg-gray-900 text-gray-300 text-sm font-medium border border-gray-800"
+                      className="px-4 py-2 rounded-lg text-sm font-medium border"
+                      style={{ backgroundColor: "var(--bg-card)", color: "var(--text-secondary)", borderColor: "var(--border-color)" }}
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
                 
-                <div className="mt-10 p-6 rounded-xl bg-black/40 border border-gray-800 text-sm text-gray-400">
+                <div className="mt-10 p-6 rounded-xl border text-sm" style={{ backgroundColor: "var(--bg-primary)", borderColor: "var(--border-color)", color: "var(--text-muted)" }}>
                   Built with a focus on <strong>performance</strong>, <strong>scalability</strong>, and <strong>user experience</strong>.
                 </div>
               </div>
@@ -163,10 +166,11 @@ export default function ProjectDetail() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="p-12 rounded-3xl bg-gradient-to-br from-gray-900 to-black border border-gray-800 text-center"
+            className="p-12 rounded-3xl border text-center"
+            style={{ background: "linear-gradient(to bottom right, var(--bg-card), var(--bg-primary))", borderColor: "var(--border-color)" }}
           >
-            <h3 className="text-3xl font-bold mb-4">Have a project in mind?</h3>
-            <p className="text-gray-400 mb-8 max-w-xl mx-auto">
+            <h3 className="text-3xl font-bold mb-4" style={{ color: "var(--text-primary)" }}>Have a project in mind?</h3>
+            <p className="mb-8 max-w-xl mx-auto" style={{ color: "var(--text-muted)" }}>
               I am always open to discussing new mobile development opportunities, SQA consulting, or technical collaborations.
             </p>
             <Link 
